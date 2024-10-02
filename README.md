@@ -7,7 +7,7 @@
 </div>
 
 ## **HSI Preprocessing**
-* Spectral downsampling by 3 (mean of 3 adjacent bands)
+* Spectral downsampling by averaging every 3 adjacent bands
 * Savitsky Golay filter
 * Cut off extremities
 
