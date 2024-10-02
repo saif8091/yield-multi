@@ -8,29 +8,44 @@
 
 ## **HSI Preprocessing**
 * Spectral downsampling by 3 (mean of 3 adjacent bands)
-* Cut off extremities
 * Savitsky Golay filter
+* Cut off extremities
 
-## **Feature names**
-gdd: Growing degree days
+## Feature Abbreviations and Definitions
 
-evap: Accumulated evapotranspiration
+- **gdd**: Growing Degree Days
+- **evap**: Accumulated Evapotranspiration
+- **vol**: Volume (obtained from SFM)
+- **vol_lidar**: Volume (obtained from LiDAR)
+- **y**: Beet root yield ($kg/m^2$)
 
-vol: Volume (obtained from SFM)
+### Naming Conventions
 
-vol_lidar: Volume (obtained from LiDAR)
+#### Mean Reflectance Spectra
+- **Format**: `ref_x_mean_n`
+  - `x`: `h` for hyperspectral, `m` for multispectral
+  - `n`: Index number (0-79 for HSI, corresponding to wavelengths between 400.80 to 928.35 nm)
 
-The mean reflectance spectra of each plot follows the following naming convention" 'ref_x_mean_n'
-here, x could be h or m corresponding to hyperspectral and multispectral respectively while n refers to the indices number. For HSI there are 80 indices so n can be 0-79, corresponding to the wavelength between 400.80 to 928.35 nm.
+#### Spectral Decomposition
+- **Format**: `xxx_h_n`
+  - `xxx`: Decomposition method (`pca`, `fa`, `ica`, `plsr`)
+  - `h`: Indicates hyperspectral data
+  - `n`: Band number
+  - Note: 3-component decomposition is used as it explains 95% of the variance.
 
-Spectral decompostion given by: xxx_h_n,
-here xxx could be pca, fa, ica or plsr and n refers to the band number. I did 3 component decomposition cause 95% variance are explained by 3 components.
+#### Vegetation Indices Spectra
+- **Format**: `vi_xxx_h_mean`
+  - `xxx`: Vegetation index
+  - `h`: Indicates hyperspectral data, `m` for multispectral data
 
-Finally the vegetation indices spectra are refered by: vi_xxx_h_mean
-where xxx refers to the vegetation index, and again h means VI obtained from hyperspectral while m means its obtained from multispectral.
-
-Note: Both spectral decompostion and vegetation indices were calculated from the mean plot reflectance spectra.
+### Notes
+- Both spectral decomposition and vegetation indices are calculated from the mean plot reflectance spectra.
 
 ## Code
 feat_split.py: Spliting the data set into test and train. This follows a split based on plot numbers.
 run_gpr_with_feats.py: Runs multiple GPR with various feature combinations and records the performances.
+
+## Schematic of the Model
+<p align="center">
+  <img src="figures/model_schematic.png" alt="Schematic">
+</p>
