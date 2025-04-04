@@ -2,7 +2,7 @@
 
 # Table Beets multiseason yield
 
-[![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)](https://python.org)
+[![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)](https://python.org)
 
 </div>
 
