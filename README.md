@@ -1,10 +1,13 @@
 <div align="center">
 
-# Table Beets multiseason yield
+# Multistage Table Beets yield prediction from unmanned aerial systems
 
 [![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)](https://python.org)
 
 </div>
+
+# **Incomplete Repository!!!**
+
 
 ## **HSI Preprocessing**
 * Spectral downsampling by averaging every 3 adjacent bands
