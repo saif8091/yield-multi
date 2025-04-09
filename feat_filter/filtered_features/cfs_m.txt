@@ -1,6 +1,0 @@
-vi_gndvi_m_mean
-vi_msr_m_mean
-vi_tcari_m_mean
-vi_spvi_m_mean
-vi_gi_m_mean
-ref_m_mean_0

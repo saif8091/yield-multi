@@ -1,5 +1,0 @@
-vi_gi_h_mean
-vi_ci_chloro_h_mean
-vi_ndre_h_mean
-ref_h_mean_6
-ref_h_mean_37
