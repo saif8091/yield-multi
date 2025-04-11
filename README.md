@@ -8,13 +8,25 @@
 
 # **Incomplete Repository!!!**
 
+## 🔄**Preprocessing and Vegetation extraction**
+Run the following code:
+```shell
+python make.py
+```
+This code zips the images, performs preprocessing (HSI only) and then extracts the vegetation from the croped plot images.
 
-## **HSI Preprocessing**
+### **HSI Preprocessing**
 * Spectral downsampling by averaging every 3 adjacent bands
 * Savitsky Golay filter
 * Cut off extremities
 
-## Feature Abbreviations and Definitions
+## **Feature generation**
+```shell
+python gen_feat.py
+```
+This code generates different types of features of each plot and compiles them in a csv file and can be found [here](data/preprocessed/features_21_22.csv).
+
+### Feature Abbreviations and Definitions
 
 - **gdd**: Growing Degree Days
 - **evap**: Accumulated Evapotranspiration
@@ -44,10 +56,23 @@
 ### Notes
 - Both spectral decomposition and vegetation indices are calculated from the mean plot reflectance spectra.
 
-## Code
-feat_split.py: Spliting the data set into test and train. This follows a split based on plot numbers.
-run_gpr_with_feats.py: Runs multiple GPR with various feature combinations and records the performances.
+### **Feature filtering**
+```shell
+python filter.py
+```
+This is code is run to find the relevant spectral features. The filtered feature can be found [here.](feature_filter/filtered_features)
 
+## **GPR Model Test**
+```shell
+python gpr_score_22.py
+```
+Trains and ouputs the GPR model scores at different feature combinations for the 2022 data set only. The scores can be found [here.](model_files/model_scores)
+
+To test for transferability to 2021 test set run the following code:
+```shell
+python -m model_test_21.gpr_testing_21
+```
+To visualise the result open this [notebook.](model_test_21/visualising_performance.ipynb)
 ## Schematic of the Model
 <p align="center">
   <img src="figures/model_schematic.png" alt="Schematic">
