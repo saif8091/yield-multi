@@ -75,5 +75,5 @@ python -m model_test_21.gpr_testing_21
 To visualise the result open this [notebook.](model_test_21/visualising_performance.ipynb)
 ## Schematic of the Model
 <p align="center">
-  <img src="figures/model_schematic.png" alt="Schematic">
+  <img src="figures/model_schematic.jpg" alt="Schematic">
 </p>
