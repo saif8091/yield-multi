@@ -58,22 +58,23 @@ This code generates different types of features of each plot and compiles them i
 
 ### **Feature filtering**
 ```shell
-python filter.py
+python -m feature_filter.filter.py
 ```
 This is code is run to find the relevant spectral features. The filtered feature can be found [here.](feature_filter/filtered_features)
 
 ## **GPR Model Test**
+Model schematic:
+<p align="center">
+  <img src="figures/model_schematic.jpg" alt="Schematic">
+</p>
+
 ```shell
-python gpr_score_22.py
+python -m model_tests.gpr_score_22.py
 ```
 Trains and ouputs the GPR model scores at different feature combinations for the 2022 data set only. The scores can be found [here.](model_files/model_scores)
 
 To test for transferability to 2021 test set run the following code:
 ```shell
-python -m model_test_21.gpr_testing_21
+python -m model_tests.gpr_testing_21
 ```
-To visualise the result open this [notebook.](model_test_21/visualising_performance.ipynb)
-## Schematic of the Model
-<p align="center">
-  <img src="figures/model_schematic.jpg" alt="Schematic">
-</p>
+To visualise the result open this [notebook.](model_tests/visualising_performance.ipynb)

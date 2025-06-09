@@ -15,23 +15,22 @@ def ratio_meteo_21_22(met_dict):
     """
     ratio_ = {}
     harvest_ = {}
-    met_mean_harvest = 1#(met_dict['20210805']*18 + met_dict['20220818']*40 + met_dict['20220824']*48)/106
     for date, value in met_dict.items():
 
         if str(date).startswith('2021'):
-            ratio_[date] = np.ones((18,)) * met_dict[date]/met_mean_harvest
-            harvest_[date] = np.ones((18,)) * met_dict['20210805']/met_mean_harvest
+            ratio_[date] = np.ones((18,)) * met_dict[date]
+            harvest_[date] = np.ones((18,)) * met_dict['20210805']
         elif str(date).startswith('2022'):
             total_plot = 88
             ratio_[date] = np.zeros((total_plot,))
             harvest_[date] = np.zeros((total_plot,))
             for i in range(total_plot):
                 if i < 40:
-                    ratio_[date][i] = met_dict[date]/met_mean_harvest
-                    harvest_[date][i] = met_dict['20220818']/met_mean_harvest
+                    ratio_[date][i] = met_dict[date]
+                    harvest_[date][i] = met_dict['20220818']
                 else:
-                    ratio_[date][i] = met_dict[date]/met_mean_harvest 
-                    harvest_[date][i] = met_dict['20220824']/met_mean_harvest
+                    ratio_[date][i] = met_dict[date] 
+                    harvest_[date][i] = met_dict['20220824']
         else:
             raise ValueError('Date not found')
 
