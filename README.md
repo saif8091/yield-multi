@@ -6,8 +6,24 @@
 
 </div>
 
-# **Incomplete Repository!!!**
+## 🛠️**Installation**
+### Prerequisites
+- Python 3.11
+- Conda
+### Steps
+- Clone/download the repository 
+- Set up and activate the environment 
+- Download the [dataset](https://data.mendeley.com/datasets/d9d5h5xbr5/1) in the directory
+```shell
+# Downloading the directory
+git clone git@github.com:saif8091/yield-multi.git
+cd yield-multi
 
+# Setting up environment
+conda env create -f environment.yml
+conda activate yield_multi
+```
+**Note**: The data should be downloaded and placed as data directory in the project root. Look [here](#project-structure) for detailed directory structure.
 ## 🔄**Preprocessing and Vegetation extraction**
 Run the following code:
 ```shell
@@ -20,7 +36,7 @@ This code zips the images, performs preprocessing (HSI only) and then extracts t
 * Savitsky Golay filter
 * Cut off extremities
 
-## **Feature generation**
+## 📊 **Feature generation**
 ```shell
 python gen_feat.py
 ```
@@ -62,7 +78,7 @@ python -m feature_filter.filter.py
 ```
 This is code is run to find the relevant spectral features. The filtered feature can be found [here.](feature_filter/filtered_features)
 
-## **GPR Model Test**
+## 🧪 **GPR Model Test**
 Model schematic:
 <p align="center">
   <img src="figures/model_schematic.jpg" alt="Schematic">
@@ -78,3 +94,68 @@ To test for transferability to 2021 test set run the following code:
 python -m model_tests.gpr_testing_21
 ```
 To visualise the result open this [notebook.](model_tests/visualising_performance.ipynb)
+
+## 📈 **Model Performance and Interpretation**
+Open [model_performance.](model_performance.ipynb)
+
+## 📁 **Project Structure**
+```
+yield-multi/
+├── data/                                # Main data directory
+│   ├── 2021_data.xlsx                   # Field measurements from 2021 growing season
+│   ├── 2022_data.xlsx                   # Field measurements from 2022 growing season
+│   ├── all_weather_data.csv             # Meteorological data from weather station
+│   ├── hyper/                           # Hyperspectral imagery
+│   │   ├── 2021/                        # 2021 growing season data
+│   │   │   └── YYYYMMDD/                # Date-organized folders
+│   │   │       └── x_YYYYMMDD.tif       # Plot images (x = plot number)
+│   │   └── 2022/                        # 2022 growing season data
+│   │       └── YYYYMMDD/                # Date-organized folders
+│   │           ├── disease_grid_yield_2022/  # LBRN12Disease location
+│   │           ├── lovebeets_grid_2022/      # LBRN12EAST location
+│   │           └── UV_efficacy_2022/         # LBRN12WEST location
+│   │               └── x_YYYYMMDD.tif   # Plot images
+│   ├── multi/                           # Multispectral imagery (same structure as hyper/)
+│   ├── structure/                       # Canopy height models
+│   │   ├── chm/                         # CHMs from structure from motion (same structure as hyper/)
+│   │   └── chm_lidar/                   # CHMs from LiDAR (same structure as hyper/)
+│   ├── preprocessed/                    # Processed data files
+|   |   ├── decomposer/                  # Directory for storing decomposition models
+│   │   ├── features_21_22.csv           # Compiled features from plots
+│   │   └── various .pkl files           # Pickled data objects
+│   └── ReadMe.md                        # Dataset documentation
+├── data_load/
+|   ├── all_data_load.py                 # Script for loading all types of data
+|   ├── gt_data_load.py                  # Script for loading ground truth data
+|   └── wt_data_load.py                  # Script for loading weather data
+├── feature_filter/
+│   ├── filtered_features/               # Directory containing filtered features                      
+│   ├── feat_filter_cfs.py               # feature filtering through correlation
+│   ├── feat_filter_mfs.py               # feature filtering through mutual information
+│   ├── feat_filter_micorfs.py           # feature filtering using combination correlation and mutual information
+│   ├── feature_selection.py             # feature selection function
+|   └── filter.py                        # Implementation of feature filtering
+├── feature_formation/                   
+|   ├── feat_split_ratio.py              # Contains the ratio for spliting features
+|   ├── feat_split.py                    # Script for spliting the dataset into train and test
+│   └── hsi_decomposer.py                # Functions for hyperspectral image decomposition
+├── figures/                             # Figures and visualizations
+│   └── model_schematic.jpg              # Schematic diagram of the model
+├── model_files/                         # Model files directory
+│   └── model_scores/                    # Directory containing model score outputs
+├── model_tests/                         # Model testing scripts
+│   ├── gpr_score_22.py                  # GPR model scoring for 2022 data
+│   ├── gpr_testing_21.py                # GPR model testing for transferability to 2021
+│   ├── visualising_performance.ipynb    # Notebook for visualizing model performance
+│   └── model_schematic.jpg              # Visual representation of the model
+├── preprocess/                          # Preprocessing scripts
+│   └── zip_im.py                        # Script for zipping images into dictionaries
+├── src/                                 # Source code directory
+│   ├── utils.py                         # Utility functions for data processing
+│   └── misc.py                          # Miscellaneous helper functions
+├── environment.yml                      # Conda environment definition file
+├── make.py                              # Script for preprocessing and vegetation extraction
+├── gen_feat.py                          # Script for generating features
+├── model_performance.ipynb              # Notebook for model performance analysis
+└── README.md                            # Project documentation
+```
