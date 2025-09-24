@@ -78,17 +78,43 @@ python -m feature_filter.filter.py
 ```
 This is code is run to find the relevant spectral features. The filtered feature can be found [here.](feature_filter/filtered_features)
 
-## 🧪 **GPR Model Test**
+## 🧪 **Machine Learning Model Tests**
 Model schematic:
 <p align="center">
   <img src="figures/model_schematic.jpg" alt="Schematic">
 </p>
 
+### Gaussian Process Regression (GPR)
 ```shell
-python -m model_tests.gpr_score_22.py
+python -m model_tests.gpr_score_22
 ```
-Trains and ouputs the GPR model scores at different feature combinations for the 2022 data set only. The scores can be found [here.](model_files/model_scores)
+Trains and outputs GPR model scores at different feature combinations for the 2022 dataset. The scores can be found [here.](model_files/model_scores)
 
+### Random Forest (RF)
+```shell
+python -m model_tests.rf_score_22
+```
+Trains and evaluates Random Forest models with hyperparameter tuning.
+
+### XGBoost
+```shell
+python -m model_tests.xgb_score_22
+```
+Trains and evaluates XGBoost models with hyperparameter tuning.
+
+### Support Vector Regression (SVR)
+```shell
+python -m model_tests.svr_score_22
+```
+Trains and evaluates Support Vector Regression models with hyperparameter tuning.
+
+### Partial Least Squares Regression (PLSR)
+```shell
+python -m model_tests.plsr_score_22
+```
+Trains and evaluates PLSR models with hyperparameter tuning.
+
+### Model Transferability Testing
 To test for transferability to 2021 test set run the following code:
 ```shell
 python -m model_tests.gpr_testing_21
@@ -142,9 +168,21 @@ yield-multi/
 ├── figures/                             # Figures and visualizations
 │   └── model_schematic.jpg              # Schematic diagram of the model
 ├── model_files/                         # Model files directory
+│   ├── gpr_model_func.py                # GPR model functions
+│   ├── rf_model_func.py                 # Random Forest model functions
+│   ├── xgb_model_func.py                # XGBoost model functions
+│   ├── svr_model_func.py                # SVR model functions
+│   ├── plsr_model_func.py               # PLSR model functions
+│   ├── mlp_model_func.py                # MLP model functions
+│   ├── load_feats.py                    # Feature loading utilities
 │   └── model_scores/                    # Directory containing model score outputs
 ├── model_tests/                         # Model testing scripts
 │   ├── gpr_score_22.py                  # GPR model scoring for 2022 data
+│   ├── rf_score_22.py                   # Random Forest model scoring for 2022 data
+│   ├── xgb_score_22.py                  # XGBoost model scoring for 2022 data
+│   ├── svr_score_22.py                  # SVR model scoring for 2022 data
+│   ├── plsr_score_22.py                 # PLSR model scoring for 2022 data
+│   ├── mlp_score_22.py                  # MLP model scoring for 2022 data
 │   ├── gpr_testing_21.py                # GPR model testing for transferability to 2021
 │   ├── visualising_performance.ipynb    # Notebook for visualizing model performance
 │   └── model_schematic.jpg              # Visual representation of the model

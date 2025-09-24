@@ -1,0 +1,5 @@
+feats,r2_train,r2_test,mape_train,mape_test,rmse_train,rmse_test,feature_importance_std_train,feature_importance_std_test
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'vol']",0.8504033179717978,0.7334929325753412,13.58725429619686,17.355025598562026,0.5059807450857163,0.6439318554964241,0.18080306,0.18080306
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'vol', 'vi_gndvi_m_mean', 'vi_msr_m_mean', 'vi_tcari_m_mean', 'vi_spvi_m_mean', 'vi_gi_m_mean', 'ref_m_mean_0']",0.8770840498344818,0.7604148260246629,12.600585752431915,16.740771530033186,0.4586454938554733,0.6105419575776913,0.14188094,0.14188094
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'vol', 'vi_tcari_m_mean', 'ref_m_mean_1']",0.9019330725485257,0.7250594966985765,10.971932151789142,17.265601644627033,0.4096701245481417,0.6540408988942191,0.1568244,0.1568244
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'vol', 'vi_gndvi_m_mean', 'vi_tcari_m_mean', 'ref_m_mean_1']",0.9131535998263766,0.7447992612118319,10.517105627870501,16.959388230350548,0.38552178164500733,0.6301247073213636,0.16473967,0.16473967

@@ -1,0 +1,5 @@
+feats,r2_train,r2_test,mape_train,mape_test,rmse_train,rmse_test,uncertainty_train,uncertainty_test
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'vi_gndvi_m_mean', 'vi_tcari_m_mean', 'ref_m_mean_1']",0.72653228431768,0.602239400632426,19.169893870118955,21.074299309665008,0.6841101611453116,0.7866769507966245,0.0,0.0
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'vi_gndvi_m_mean', 'vi_tcari_m_mean', 'ref_m_mean_1', 'vol_lidar_m']",0.8020416105859002,0.7392267383566966,14.747176671853321,16.347441049980237,0.5820495603062018,0.6369672076780386,0.0,0.0
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'pca_h_0', 'pca_h_1', 'pca_h_2']",0.600626647423768,0.4711969753697054,25.608631861886348,25.96001995762108,0.8267278189267795,0.9070526789730987,0.0,0.0
+"['gdd', 'gdd_harvest', 'evap', 'evap_harvest', 'pca_h_0', 'pca_h_1', 'pca_h_2', 'vol']",0.8612498116975655,0.7258318965276365,11.903700126414162,16.324162703628424,0.487292582002856,0.6531215429292978,0.0,0.0
